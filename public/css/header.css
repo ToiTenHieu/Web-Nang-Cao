@@ -1,0 +1,73 @@
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #000;
+    margin-bottom: 0px;
+  }
+  
+  
+  .main-nav.scrolled {
+    background-color: black; /* nền đen khi cuộn xuống */
+  }
+  
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    gap:20px
+  }
+  
+  .logo img {
+    height: 40px;
+    margin-right: 10px;
+  }
+  
+  .logo-text {
+    font-family: 'Brush Script MT', cursive;
+    font-size: 30px;
+    color: #007bff;
+    text-decoration: none;
+    
+  }
+  
+  .menu {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .menu li {
+    display: flex;
+    align-items: center;
+  }
+  
+  .menu li a,
+  .menu li button {
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    text-transform: uppercase; /* CHỮ IN HOA ĐỀU */
+    padding: 0;
+    margin: 0;
+    position: relative;
+  }
+  
+  .menu li a:hover,
+  .menu li button:hover {
+    border-bottom: 2px solid white;
+  }
+  
+  
