@@ -35,7 +35,7 @@ public function storeProfile(Request $request)
 
     $user->save();
 
-        return redirect()->route('user.profile')->with('success', 'Cập nhật thông tin thành công');
+        return redirect()->route('home')->with('success', 'Cập nhật thông tin thành công');
     } else {
         return redirect()->back()->withErrors(['user' => 'Không tìm thấy người dùng.']);
     }

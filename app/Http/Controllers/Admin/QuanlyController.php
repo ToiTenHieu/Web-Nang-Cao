@@ -78,12 +78,14 @@ class QuanlyController extends Controller
     public function edit($id)
     {
         $room = Room::findOrFail($id);
-        return view('admin.edit', compact('room'));
+        $otherImages = DB::table('room_images')->where('room_id', $id)->get();
+    
+        return view('admin.edit', compact('room', 'otherImages'));
     }
-
+    
     // Xử lý cập nhật phòng
     
-    public function update(Request $request, $id)
+   public function update(Request $request, $id)
 {
     $room = Room::findOrFail($id);
 
@@ -92,14 +94,15 @@ class QuanlyController extends Controller
         'city' => 'required',
         'price' => 'required|numeric',
         'describe' => 'nullable',
-        'image' => 'nullable|image|mimes:jpg,jpeg,png,gif'
+        'image' => 'nullable|image|mimes:jpg,jpeg,png,gif',
+        'other_images.*' => 'nullable|image|mimes:jpg,jpeg,png,gif',
     ]);
 
+    // Ảnh chính
     if ($request->hasFile('image')) {
         if ($room->image_path && file_exists(public_path($room->image_path))) {
             unlink(public_path($room->image_path));
         }
-
         $image = $request->file('image');
         $filename = 'images/home' . $room->id . '.' . $image->getClientOriginalExtension();
         $image->move(public_path('images'), basename($filename));
@@ -111,11 +114,29 @@ class QuanlyController extends Controller
     $room->city = $request->city;
     $room->price = $request->price;
     $room->describe = $request->describe;
-
     $room->save();
+
+    // Cập nhật ảnh phụ
+    if ($request->hasFile('other_images')) {
+        foreach ($request->file('other_images') as $id => $imageFile) {
+            if ($imageFile) {
+                $roomImage = DB::table('room_images')->where('id', $id)->first();
+                if ($roomImage && file_exists(public_path($roomImage->image_path))) {
+                    unlink(public_path($roomImage->image_path));
+                }
+                $filename = 'images/phong' . $room->id . '_' . $id . '.' . $imageFile->getClientOriginalExtension();
+                $imageFile->move(public_path('images'), basename($filename));
+                DB::table('room_images')->where('id', $id)->update([
+                    'image_path' => $filename,
+                    'updated_at' => now()
+                ]);
+            }
+        }
+    }
 
     return redirect()->route('admin.quanly.index')->with('success', 'Cập nhật phòng thành công.');
 }
+
 
 
     // Xử lý xoá phòng

@@ -9,7 +9,7 @@
     }
 
     form {
-        max-width: 600px;
+        max-width: 800px;
         background-color: #f9f9f9;
         padding: 25px;
         border-radius: 10px;
@@ -17,12 +17,12 @@
     }
 
     form div {
-        margin-bottom: 15px;
+        margin-bottom: 20px;
     }
 
     label {
         display: block;
-        margin-bottom: 6px;
+        margin-bottom: 8px;
         font-weight: bold;
         color: #34495e;
     }
@@ -44,10 +44,22 @@
         resize: vertical;
     }
 
-    img {
-        margin: 10px 0;
-        border-radius: 5px;
-        box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    .image-preview {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .image-preview div {
+        text-align: center;
+    }
+
+    .image-preview img {
+        width: 150px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 8px;
+        box-shadow: 0 0 5px rgba(0,0,0,0.2);
     }
 
     button[type="submit"] {
@@ -102,10 +114,27 @@
     </div>
 
     <div>
-        <label>Ảnh phòng hiện tại:</label><br>
-        <img src="{{ asset($room->image_path) }}" width="150" alt="Ảnh phòng"><br>
-        <label>Thay ảnh mới (nếu cần):</label>
-        <input type="file" name="image" accept="image/*">
+        <label>Ảnh chính:</label>
+        <div class="image-preview">
+            <div>
+                <img src="{{ asset($room->image_path) }}" alt="Ảnh chính">
+                <div>Thay mới:</div>
+                <input type="file" name="image" accept="image/*">
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <label>Ảnh phụ:</label>
+        <div class="image-preview">
+            @foreach ($otherImages as $index => $img)
+                <div>
+                    <img src="{{ asset($img->image_path) }}" alt="Ảnh phụ {{ $index+2 }}">
+                    <div>Thay mới:</div>
+                    <input type="file" name="other_images[{{ $img->id }}]" accept="image/*">
+                </div>
+            @endforeach
+        </div>
     </div>
 
     <button type="submit">📌 Cập nhật</button>

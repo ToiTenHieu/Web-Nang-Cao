@@ -29,7 +29,8 @@
             </div>
 
             <div class="user">
-                <span>{{ Auth::user()->name }}</span>
+            <a href="{{ route('profile.show') }}">{{ Auth::user()->name }}</a>
+
                 
                 <div class="language-wrapper">
                     
