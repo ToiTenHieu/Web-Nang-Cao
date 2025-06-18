@@ -31,12 +31,12 @@
                 <div class="card-header">Khách hiện tại</div>
                 <div class="card-body">
                 <h5 class="card-title">{{ $soKhachHienTai }}</h5>
-                    <p class="card-text">Khách đang lưu trú tại khách sạn.</p>
+                    <p class="card-text">Khách đã đặt lịch tại khách sạn.</p>
                 </div>
             </div>
         </div>
     </div>
-    <h2 class="mt-5">🧍 Danh sách khách đang lưu trú</h2>
+    <h2 class="mt-5">🧍 Danh sách khách đã đặt lịch</h2>
 <table class="table table-bordered">
     <thead>
         <tr>

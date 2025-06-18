@@ -16,4 +16,8 @@ class Booking extends Model
         'checkin_date',
         'checkout_date',
     ];
+    public function room()
+{
+    return $this->belongsTo(Room::class, 'room_id'); // nếu là 'phong_id' thì sửa lại
+}
 }

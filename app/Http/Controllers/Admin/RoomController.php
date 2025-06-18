@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Models\Room;  // nhớ import model Room
 use Illuminate\Http\Request;
-
+use App\Http\Controllers\Controller;
 class RoomController extends Controller
 {
     // Hiển thị danh sách tất cả phòng

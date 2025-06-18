@@ -17,7 +17,11 @@ class User extends Authenticatable implements MustVerifyEmail
         'name',
         'email',
         'password',
+        'phone',
+        'address',
+        'dob',
     ];
+
 
     protected $hidden = [
         'password',
@@ -38,5 +42,9 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         $this->notify(new CustomResetPassword($token));
     }
+    public function bookings()
+{
+    return $this->hasMany(Booking::class);
+}
 
 }

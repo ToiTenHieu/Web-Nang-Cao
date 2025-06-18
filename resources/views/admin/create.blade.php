@@ -102,6 +102,9 @@
     <div>
         <label>Ảnh phòng:</label>
         <input type="file" name="image" accept="image/*" required>
+        <input type="file" name="image" accept="image/*" required>
+        <input type="file" name="image" accept="image/*" required>
+        <input type="file" name="image" accept="image/*" required>
     </div>
 
     <button type="submit">➕ Thêm phòng</button>

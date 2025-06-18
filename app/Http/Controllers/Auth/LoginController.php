@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+
 class LoginController extends Controller
 {
     public function showLoginForm()
@@ -30,17 +32,27 @@ public function login(LoginRequest $request): RedirectResponse
             ]);
         }
 
-        return redirect()->intended('/home');
+        // 👉 Chuyển hướng dựa theo vai trò
+        if ($user->role === 'admin') {
+            return redirect()->route('admin.dashboard');
+        } elseif ($user->role === 'user') {
+            return redirect()->route('home');
+        }
+
+        // Nếu role không hợp lệ
+        Auth::logout();
+        return redirect()->route('login')->withErrors([
+            'email' => 'Không xác định quyền truy cập.',
+        ]);
     }
 
     return back()->withErrors([
         'email' => 'Thông tin đăng nhập không chính xác.',
-    ])->withInput();}
-    public function logout(): RedirectResponse
-    {
-        Auth::logout();
-        request()->session()->invalidate();
-        request()->session()->regenerateToken();
-        return redirect('/login');
-    }
+    ])->withInput();
+}
+    protected function authenticated(Request $request, $user)
+{
+    return redirect()->route('redirect.role');
+}
+
 }
