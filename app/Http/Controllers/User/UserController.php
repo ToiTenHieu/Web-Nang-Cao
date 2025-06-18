@@ -12,7 +12,7 @@ class UserController extends Controller
 {
     public function showProfileForm()
 {
-    return view('users.setup-profile');
+    return view('user.setup-profile');
 }
 
 
@@ -34,7 +34,7 @@ public function storeProfile(Request $request)
 
     $user->save();
 
-        return redirect()->route('user.home')->with('success', 'Cập nhật thông tin thành công');
+        return redirect()->route('user.profile')->with('success', 'Cập nhật thông tin thành công');
     } else {
         return redirect()->back()->withErrors(['user' => 'Không tìm thấy người dùng.']);
     }

@@ -53,7 +53,7 @@ class QuanlyController extends Controller
         $room->image_path = $filename;
         $room->save();
 
-        return redirect()->route('quanly.index')->with('success', 'Đã thêm phòng thành công.');
+        return redirect()->route('admin.quanly.index')->with('success', 'Đã thêm phòng thành công.');
     }
 
     // Giao diện sửa phòng
@@ -96,7 +96,7 @@ class QuanlyController extends Controller
 
     $room->save();
 
-    return redirect()->route('quanly.index')->with('success', 'Cập nhật phòng thành công.');
+    return redirect()->route('admin.quanly.index')->with('success', 'Cập nhật phòng thành công.');
 }
 
 
@@ -110,6 +110,6 @@ class QuanlyController extends Controller
         }
 
         $room->delete();
-        return redirect()->route('quanly.index')->with('success', 'Xoá phòng thành công.');
+        return redirect()->route('admin.quanly.index')->with('success', 'Xoá phòng thành công.');
     }
 }

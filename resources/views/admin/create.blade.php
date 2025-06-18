@@ -70,7 +70,7 @@
 
 <h2>Thêm phòng mới</h2>
 
-<form method="POST" action="{{ route('phong.store') }}" enctype="multipart/form-data">
+<form method="POST" action="{{ route('admin.phong.store') }}" enctype="multipart/form-data">
     @csrf
     <div>
         <label>Tên phòng:</label>

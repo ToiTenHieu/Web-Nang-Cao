@@ -70,7 +70,7 @@
 
 <h2>Sửa thông tin phòng</h2>
 
-<form method="POST" action="{{ route('phong.update', $room->id) }}" enctype="multipart/form-data">
+<form method="POST" action="{{ route('admin.phong.update', $room->id) }}" enctype="multipart/form-data">
     @csrf
     @method('PUT')
 

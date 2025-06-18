@@ -14,7 +14,7 @@ class CheckProfileCompletion
 
         // Nếu chưa cập nhật thông tin thì bắt buộc chuyển hướng
         if ($user && !$user->profile_completed && !$request->is('setup-profile')) {
-            return redirect()->route('user.profile.setup');
+            return redirect()->route('profile.setup');
         }
 
         return $next($request);

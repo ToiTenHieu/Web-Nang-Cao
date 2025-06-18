@@ -20,4 +20,9 @@ class Booking extends Model
 {
     return $this->belongsTo(Room::class, 'room_id'); // nếu là 'phong_id' thì sửa lại
 }
+public function user()
+{
+    return $this->belongsTo(User::class);
+}
+
 }

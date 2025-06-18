@@ -93,7 +93,7 @@
 
 <h2>Danh sách phòng</h2>
 
-<a href="{{ route('phong.create') }}" class="btn-add-room">
+<a href="{{ route('admin.phong.create') }}" class="btn-add-room">
     ➕ Thêm phòng
 </a>
 
@@ -120,8 +120,8 @@
             <td>{{ $room->describe }}</td>
             <td><img src="{{ asset($room->image_path) }}" alt="Ảnh" width="100"></td>
             <td>
-                <a href="{{ route('phong.edit', $room->id) }}">✏️ Sửa</a>
-                <form action="{{ route('phong.destroy', $room->id) }}" method="POST" style="display:inline-block;">
+                <a href="{{ route('admin.phong.edit', $room->id) }}">✏️ Sửa</a>
+                <form action="{{ route('admin.phong.destroy', $room->id) }}" method="POST" style="display:inline-block;">
                     @csrf
                     @method('DELETE')
                     <button onclick="return confirm('Bạn có chắc muốn xoá?')" type="submit">🗑️ Xoá</button>

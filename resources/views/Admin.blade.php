@@ -26,10 +26,9 @@
             <h5 class="text-center">Khách sạn</h5>
             <hr>
             <ul class="nav flex-column">
-            <a href="{{ route('thongke') }}" class="nav-link text-white">📊 Thống kê</a>
+            <a href="{{ route('admin.thongke') }}" class="nav-link text-white">📊 Thống kê</a>
 
-            <a href="{{ route('quanly.index') }}" class="nav-link text-white">🏨 Quản lý phòng</a>
-                <li class="nav-item"><a href="{{ route('booking.index') }}" class="nav-link text-white">🛏️ Đặt phòng</a></li>
+            <a href="{{ route('admin.quanly.index') }}" class="nav-link text-white">🏨 Quản lý phòng</a>
                 <li class="nav-item"><a href="{{ route('posts.index') }}" class="nav-link text-white">📰 Bài viết</a></li>
                 <li class="nav-item"><a href="{{ route('settings') }}" class="nav-link text-white">⚙️ Cài đặt</a></li>
                 <li class="nav-item"><a href="{{ route('logout') }}" class="nav-link text-white">🚪 Đăng xuất</a></li>
