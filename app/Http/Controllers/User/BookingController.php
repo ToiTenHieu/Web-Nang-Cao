@@ -42,11 +42,13 @@ class BookingController extends Controller
         // Nếu không trùng, tiến hành lưu
         Booking::create([
             'room_id' => $room_id,
+            'user_id' => Auth::id(),
             'customer_name' => Auth::user()->name ?? 'Khách',
             'checkin_date' => $checkin,
             'checkout_date' => $checkout,
             'city' => $request->input('city') ?? '',
         ]);
+        
     
         return back()->with('success', 'Đặt phòng thành công!');
     }

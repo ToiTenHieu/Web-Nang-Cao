@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Booking;
+use App\Models\Room; 
 
 class UserController extends Controller
 {
@@ -40,16 +41,19 @@ public function storeProfile(Request $request)
     }
 
 }
+
 public function profile()
 {
     $user = Auth::user();   
 
-    // Lấy các booking của user kèm phòng (nếu dùng quan hệ)
-    $bookings = Booking::with('room') // cần định nghĩa quan hệ
+    $bookings = Booking::with('room')
                 ->where('user_id', $user->id)
                 ->latest()
                 ->get();
 
-    return view('users.profile', compact('user', 'bookings'));
+    // Lấy danh sách tất cả phòng (hoặc chỉ phòng ở Hà Nội)
+    $rooms = Room::all(); 
+
+    return view('home', compact('user', 'bookings', 'rooms'));
 }
 }

@@ -8,6 +8,7 @@ use App\Models\Room;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\DB;
 
 class QuanlyController extends Controller
 {
@@ -25,6 +26,8 @@ class QuanlyController extends Controller
     }
 
     // Xử lý thêm mới phòng
+
+
     public function store(Request $request)
     {
         $request->validate([
@@ -32,30 +35,45 @@ class QuanlyController extends Controller
             'city' => 'required',
             'price' => 'required|numeric',
             'describe' => 'nullable',
-            'image' => 'required|image|mimes:jpg,jpeg,png,gif'
+            'images' => 'required|array|min:4',
+            'images.*' => 'image|mimes:jpg,jpeg,png,gif|max:2048',
         ]);
-
-        // Tạo bản ghi phòng trước để lấy ID
+    
+        // 1. Tạo phòng
         $room = Room::create([
             'name' => $request->name,
             'city' => $request->city,
             'price' => $request->price,
             'describe' => $request->describe,
-            'image_path' => '' // tạm thời để trống
+            'image_path' => '', // Tạm
         ]);
-
-        // Đặt tên ảnh theo định dạng images/home<ID>.jpg
-        $image = $request->file('image');
-        $filename = 'images/home' . $room->id . '.' . $image->getClientOriginalExtension();
-        $image->move(public_path('images'), basename($filename));
-
-        // Cập nhật lại đường dẫn ảnh cho phòng
-        $room->image_path = $filename;
+    
+        $images = $request->file('images');
+    
+        // 2. Ảnh đầu tiên → bảng rooms
+        $firstImage = $images[0];
+        $firstFilename = 'images/home' . $room->id . '.' . $firstImage->getClientOriginalExtension();
+        $firstImage->move(public_path('images'), basename($firstFilename));
+        $room->image_path = $firstFilename;
         $room->save();
-
-        return redirect()->route('admin.quanly.index')->with('success', 'Đã thêm phòng thành công.');
+    
+        // 3. Các ảnh còn lại → bảng room_images
+        foreach (array_slice($images, 1) as $index => $image) {
+            $filename = 'images/phong' . $room->id . '_' . ($index + 2) . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images'), basename($filename));
+    
+            DB::table('room_images')->insert([
+                'room_id' => $room->id,
+                'image_path' => $filename,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+        }
+    
+        return redirect()->route('admin.quanly.index')->with('success', 'Đã thêm phòng và ảnh thành công.');
     }
-
+    
+    
     // Giao diện sửa phòng
     public function edit($id)
     {

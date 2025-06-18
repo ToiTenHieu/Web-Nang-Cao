@@ -15,6 +15,7 @@ class Booking extends Model
         'city',
         'checkin_date',
         'checkout_date',
+        'user_id',
     ];
     public function room()
 {
