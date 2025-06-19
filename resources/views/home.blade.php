@@ -13,11 +13,11 @@
 
 </head>
 
-<body>
+<body id="trangchu">
 
     @include('layouts.header')
 
-    <div class="header-bg" id="trangchu">
+    <div class="header-bg" >
         <div class="topbar">
             <div class="topba">
                 <span>
@@ -30,6 +30,8 @@
 
             <div class="user">
             <a href="{{ route('profile.show') }}">{{ Auth::user()->name }}</a>
+            <a  href="{{ route('bookings.my') }}">Phòng bạn đã đặt</a>
+
 
                 
                 <div class="language-wrapper">

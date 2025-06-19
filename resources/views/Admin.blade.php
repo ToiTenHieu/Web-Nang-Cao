@@ -14,21 +14,21 @@
         <!-- MENU TRÁI -->
         <div class="bg-dark text-white p-3" style="min-width: 220px;">
             <!-- Thông tin người dùng -->
-         <!-- Thông tin người dùng -->
-<div class="d-flex align-items-center mb-3 user-info">
-    <img src="{{ asset('images/beach.jpg') }}" class="avatar me-2">
-    <div>
-        <div class="fw-bold">Welcome,</div>
-        <div>{{ Auth::user()->name ?? 'Admin' }}</div>
-    </div>
-</div>
+            <!-- Thông tin người dùng -->
+            <div class="d-flex align-items-center mb-3 user-info">
+                <img src="{{ asset('images/beach.jpg') }}" class="avatar me-2">
+                <div>
+                    <div class="fw-bold">Welcome,</div>
+                    <div>{{ Auth::user()->name ?? 'Admin' }}</div>
+                </div>
+            </div>
 
             <h5 class="text-center">Khách sạn</h5>
             <hr>
             <ul class="nav flex-column">
-            <a href="{{ route('admin.thongke') }}" class="nav-link text-white">📊 Thống kê</a>
+                <a href="{{ route('admin.thongke') }}" class="nav-link text-white">📊 Thống kê</a>
 
-            <a href="{{ route('admin.quanly.index') }}" class="nav-link text-white">🏨 Quản lý phòng</a>
+                <a href="{{ route('admin.quanly.index') }}" class="nav-link text-white">🏨 Quản lý phòng</a>
                 <li class="nav-item"><a href="{{ route('posts.index') }}" class="nav-link text-white">📰 Bài viết</a></li>
                 <li class="nav-item"><a href="{{ route('settings') }}" class="nav-link text-white">⚙️ Cài đặt</a></li>
                 <li class="nav-item"><a href="{{ route('logout') }}" class="nav-link text-white">🚪 Đăng xuất</a></li>

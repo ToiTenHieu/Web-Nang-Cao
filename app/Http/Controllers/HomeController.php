@@ -67,4 +67,11 @@ class HomeController extends Controller
         // Trả về view với danh sách phòng trống
         return view('rooms.available', ['rooms' => $availableRooms]);
     }
+    public function myBookings()
+    {
+        // Lấy toàn bộ dữ liệu từ bảng bookings
+        $bookings = Booking::all();
+
+        return view('my-bookings', compact('bookings'));
+    }
 }

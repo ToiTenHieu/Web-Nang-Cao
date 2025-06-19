@@ -156,3 +156,6 @@ Route::get('/redirect-role', function () {
 use App\Http\Controllers\ProfileController;
 
 Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
+
+
+Route::get('/my-bookings', [HomeController::class, 'myBookings'])->name('bookings.my');
