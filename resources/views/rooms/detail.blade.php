@@ -79,7 +79,7 @@
                 <form action="{{ route('rooms.review', $room->id) }}" method="POST">
                     @csrf
                     <textarea name="review" rows="4" style="width: 100%;" placeholder="Viết đánh giá..." required></textarea>
-                    <button type="submit" style="margin-top: 10px; padding: 8px 16px; background-color: #28a745; color: white; border: none; border-radius: 4px;">Gửi đánh giá</button>
+                    <button type="submit" style="margin-top: 10px; padding: 8px 16px;  background-color: #3498db; color: white; border: none; border-radius: 4px;">Gửi đánh giá</button>
                 </form>
             </div>
             <!-- HIỂN THỊ DANH SÁCH ĐÁNH GIÁ -->
