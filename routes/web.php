@@ -161,3 +161,5 @@ Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show')
 Route::get('/my-bookings', [HomeController::class, 'myBookings'])->name('bookings.my');
 Route::post('/rooms/{id}/review', [BookingController::class, 'storeReview'])->name('rooms.review');
 Route::get('/rooms/{id}', [BookingController::class, 'showRoomDetail'])->name('rooms.detail');
+Route::get('/nguoidung', [UserController::class, 'index'])->name('admin.nguoidung.index');
+Route::delete('/admin/nguoidung/{id}', [UserController::class, 'destroy'])->name('admin.nguoidung.destroy');

@@ -22,7 +22,7 @@
             <div class="topba">
                 <span>
                     <i class="fas fa-map-marker-alt" style="color: black; margin-right: 5px;"></i>
-                    hej hej
+                    P. Nguyễn Trác, Yên Nghĩa, Hà Đông, Hà Nội
                 </span>
 
                 <span>📞 0396984248</span>
@@ -81,6 +81,7 @@
         <h2>Không gian nghỉ dưỡng đẳng cấp,<br> nơi từng chi tiết được chăm chút để tôn vinh sự tinh tế và riêng tư của bạn.</h2>
     </div>
     <h1>Thông tin phòng nghỉ tại Hà Nội ></h1>
+    <div class="room-container-wrapper"></div>
     <div class="room-container">
         @foreach ($rooms->where('city', 'Hanoi') as $room)
         @if ($room && $room->image_path)
@@ -94,7 +95,9 @@
         @endif
         @endforeach
     </div>
+    </div>
     <h1>Thông tin phòng nghỉ tại Hồ Chí Minh ></h1>
+    <div class="room-container-wrapper"></div>
     <div class="room-container">
         @foreach ($rooms->where('city', 'HCM') as $room)
         @if ($room && $room->image_path)
@@ -108,7 +111,9 @@
         @endif
         @endforeach
     </div>
+    </div>
     <h1>Thông tin phòng nghỉ tại Đà Nẵng > </h1>
+    <div class="room-container-wrapper"></div>
     <div class="room-container">
         @foreach ($rooms->where('city', 'DaNang') as $room)
         @if ($room && $room->image_path)
@@ -122,7 +127,9 @@
         @endif
         @endforeach
     </div>
+    </div>
     <h1>Thông tin phòng nghỉ tại Nha Trang ></h1>
+    <div class="room-container-wrapper"></div>
     <div class="room-container">
         @foreach ($rooms->where('city', 'NhaTrang') as $room)
         @if ($room && $room->image_path)
@@ -136,7 +143,9 @@
         @endif
         @endforeach
     </div>
+    </div>
     <h1>Thông tin phòng nghỉ tại Đà Lạt ></h1>
+    <div class="room-container-wrapper"></div>
     <div class="room-container">
         @foreach ($rooms->where('city', 'DaLat') as $room)
         @if ($room && $room->image_path)
@@ -149,6 +158,7 @@
         </a>
         @endif
         @endforeach
+    </div>
     </div>
 
 

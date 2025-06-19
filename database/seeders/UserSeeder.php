@@ -20,10 +20,10 @@ class UserSeeder extends Seeder
                 'created_at' => '2025-06-19 06:30:42',
                 'updated_at' => '2025-06-19 06:31:30',
                 'role' => 'user',
-                'phone' => null,
-                'address' => null,
-                'dob' => null,
-                'profile_completed' => false,
+                'phone' => '0366567296',
+                'address' => 'Hà Tây',
+                'dob' => '2005-06-29',
+                'profile_completed' => 1,
             ],
             [
                 'name' => 'Admin',
@@ -38,6 +38,20 @@ class UserSeeder extends Seeder
                 'address' => null,
                 'dob' => null,
                 'profile_completed' => false,
+            ],
+            [
+                'name' => 'Nguyễn Trường Sơn',
+                'email' => '23010313@st.phenikaa-uni.edu.vn',
+                'email_verified_at' => '2025-06-19 06:32:28',
+                'password' => Hash::make('123456'),
+                'remember_token' => null,
+                'created_at' => '2025-06-19 06:31:45',
+                'updated_at' => '2025-06-19 06:32:28',
+                'role' => 'user',
+                'phone' => '0945807296',
+                'address' => 'Hà Tây',
+                'dob' => '2005-06-29',
+                'profile_completed' => 1,
             ]
         ]);
     }

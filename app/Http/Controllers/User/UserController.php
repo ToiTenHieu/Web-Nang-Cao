@@ -56,4 +56,25 @@ public function profile()
 
     return view('home', compact('user', 'bookings', 'rooms'));
 }
+public function index()
+{
+    // Chỉ lấy những user có role là 'user'
+    $users = User::where('role', 'user')->get();
+
+    return view('admin.index', compact('users'));
+}
+public function destroy($id)
+{
+    $user = User::findOrFail($id);
+
+    // Không cho xoá admin nếu bạn muốn bảo vệ
+    if ($user->role === 'admin') {
+        return redirect()->back()->with('error', 'Không thể xoá admin!');
+    }
+
+    $user->delete();
+
+    return redirect()->route('admin.nguoidung.index')->with('success', 'Đã xoá người dùng thành công.');
+}
+
 }
