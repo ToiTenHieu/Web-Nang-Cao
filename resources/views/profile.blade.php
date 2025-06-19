@@ -22,6 +22,7 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
             width: 500px;
             text-align: center;
+            padding-bottom: 80px; /* Thêm dòng này */
         }
 
         .profile-card h2 {
@@ -54,7 +55,7 @@
         }
 
         .btn {
-            margin-top: 30px;
+            margin-top: 100px;
             padding: 10px 30px;
             background-color: #ff7e5f;
             color: white;
@@ -69,13 +70,16 @@
         .btn:hover {
             background-color: #eb5e40;
         }
+        .hieu{
+            margin-bottom: 30px;
+        }
     </style>
 </head>
 
 <body>
     <div class="profile-card">
         <h2>Thông Tin Cá Nhân</h2>
-        <table>
+        <table class="hieu">
             <tr>
                 <th>Họ tên</th>
                 <td>{{ $user->name }}</td>

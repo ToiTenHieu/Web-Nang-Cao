@@ -89,6 +89,13 @@
     form button:hover {
         text-decoration: underline;
     }
+    .table-description {
+    max-height: 150px;
+    overflow-y: auto;
+    text-align: left;
+    padding-right: 5px;
+    white-space: pre-line;
+}
 </style>
 
 <h2>Danh sách phòng</h2>
@@ -117,7 +124,7 @@
             <td>{{ $room->name }}</td>
             <td>{{ $room->city }}</td>
             <td>{{ number_format($room->price) }} đ</td>
-            <td>{{ $room->describe }}</td>
+            <td><div class="table-description">{{ $room->describe }}</div></td>
             <td><img src="{{ asset($room->image_path) }}" alt="Ảnh" width="100"></td>
             <td>
                 <a href="{{ route('admin.phong.edit', $room->id) }}">✏️ Sửa</a>

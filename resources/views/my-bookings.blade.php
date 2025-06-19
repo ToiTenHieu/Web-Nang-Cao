@@ -22,6 +22,7 @@
             width: 90%;
             max-width: 900px;
             text-align: center;
+            
         }
 
         .booking-card h2 {
@@ -52,7 +53,7 @@
         }
 
         .btn {
-            margin-top: 30px;
+            margin-top: 100px;
             padding: 10px 30px;
             background-color: #ff7e5f;
             color: white;
@@ -67,18 +68,20 @@
         .btn:hover {
             background-color: #eb5e40;
         }
+        .hieu{
+            margin-bottom: 100px;
+        }
     </style>
 </head>
 <body>
     <div class="booking-card">
-        <h2>Danh Sách Phòng Đã Đặt</h2>
+        <h2 >Danh Sách Phòng Đã Đặt</h2>
 
         @if ($bookings->isEmpty())
             <div class="alert alert-warning text-center">
-                Bạn chưa đặt phòng nào.
             </div>
         @else
-            <table>
+            <table >
                 <thead>
                     <tr>
                         <th>Tên Khách</th>
