@@ -17,7 +17,7 @@
 
     @include('layouts.header')
 
-    <div class="header-bg" >
+    <div class="header-bg">
         <div class="topbar">
             <div class="topba">
                 <span>
@@ -29,13 +29,13 @@
             </div>
 
             <div class="user">
-            <a href="{{ route('profile.show') }}">{{ Auth::user()->name }}</a>
-            <a  href="{{ route('bookings.my') }}">Phòng bạn đã đặt</a>
+                <a href="{{ route('profile.show') }}" class="menu-link">{{ Auth::user()->name }}</a>
+                <a href="{{ route('bookings.my') }}" class="menu-link">Phòng bạn đã đặt</a>
 
 
-                
+
                 <div class="language-wrapper">
-                    
+
                 </div>
             </div>
         </div>
@@ -46,33 +46,33 @@
 
         <!-- Booking form -->
         <form method="POST" action="{{ route('rooms.checkAvailable') }}">
-    @csrf
-    <div class="booking-form">
-        <div class="booking-field">
-            <label>NGÀY ĐẾN</label>
-            <input type="text" id="checkin-date" name="checkin_date" placeholder="Chọn ngày đến" required>
-        </div>
-        <div class="booking-field">
-            <label>NGÀY ĐI</label>
-            <input type="text" id="checkout-date" name="checkout_date" placeholder="Chọn ngày đi" required>
-          
-        </div>
-        <div class="booking-field">
-            <label>THÀNH PHỐ</label>
-            <select name="city" required>
-                <option value="">Chọn thành phố</option>
-                <option value="Hanoi">Hà Nội</option>
-                <option value="HCM">TP. Hồ Chí Minh</option>
-                <option value="DaNang">Đà Nẵng</option>
-                <option value="NhaTrang">Nha Trang</option>
-                <option value="DaLat">Đà Lạt</option>
-            </select>
-        </div>
-        <div class="booking-button" >
-            <button type="submit">KIỂM TRA PHÒNG TRỐNG</button>
-        </div>
-    </div>
-</form>
+            @csrf
+            <div class="booking-form">
+                <div class="booking-field">
+                    <label>NGÀY ĐẾN</label>
+                    <input type="text" id="checkin-date" name="checkin_date" placeholder="Chọn ngày đến" required>
+                </div>
+                <div class="booking-field">
+                    <label>NGÀY ĐI</label>
+                    <input type="text" id="checkout-date" name="checkout_date" placeholder="Chọn ngày đi" required>
+
+                </div>
+                <div class="booking-field">
+                    <label>THÀNH PHỐ</label>
+                    <select name="city" required>
+                        <option value="">Chọn thành phố</option>
+                        <option value="Hanoi">Hà Nội</option>
+                        <option value="HCM">TP. Hồ Chí Minh</option>
+                        <option value="DaNang">Đà Nẵng</option>
+                        <option value="NhaTrang">Nha Trang</option>
+                        <option value="DaLat">Đà Lạt</option>
+                    </select>
+                </div>
+                <div class="booking-button">
+                    <button type="submit">KIỂM TRA PHÒNG TRỐNG</button>
+                </div>
+            </div>
+        </form>
 
     </div>
     <div class="slogan" id="slogan">
@@ -188,49 +188,49 @@
 
     <section class="service-section" id="service-section">
         <div class="service-item">
-            <a href="/phong-nghi-lon">
+            <a href="#">
                 <i class="fas fa-bed"></i>
                 <p>PHÒNG NGHỈ LỚN</p>
             </a>
         </div>
         <div class="service-item">
-            <a href="/view-bien">
+            <a href="">
                 <i class="fas fa-water"></i>
                 <p>VIEW BIỂN TỪ BAN CÔNG</p>
             </a>
         </div>
         <div class="service-item">
-            <a href="/spa">
+            <a href="">
                 <i class="fas fa-spa"></i>
                 <p>HỒ BƠI & SPA</p>
             </a>
         </div>
         <div class="service-item">
-            <a href="/wifi">
+            <a href="">
                 <i class="fas fa-wifi"></i>
                 <p>PHỦ SÓNG WIFI</p>
             </a>
         </div>
         <div class="service-item">
-            <a href="/dich-vu-mo-rong">
+            <a href="">
                 <i class="fas fa-bell-concierge"></i>
                 <p>DỊCH VỤ MỞ RỘNG</p>
             </a>
         </div>
         <div class="service-item">
-            <a href="/don-dep-hang-ngay">
+            <a href="">
                 <i class="fas fa-broom"></i>
                 <p>DỌN DẸP MỖI NGÀY</p>
             </a>
         </div>
         <div class="service-item">
-            <a href="/buffet-sang">
+            <a href="">
                 <i class="fas fa-utensils"></i>
                 <p>BUFFET BỮA SÁNG</p>
             </a>
         </div>
         <div class="service-item">
-            <a href="/dua-don-san-bay">
+            <a href="">
                 <i class="fas fa-taxi"></i>
                 <p>ĐƯA ĐÓN TỪ SÂN BAY</p>
             </a>
@@ -280,32 +280,7 @@
 
         </div>
     </section>
-    <footer class="footer" id="footer">
-        <div class="footer-container">
-            <div class="footer-logo">
-                <img src="{{ asset('images/homestay.png') }}" style="width: 200px; height: auto;" alt="Logo">
-                <h2>Sky Luxury</h2>
-                <p class="slogann">Happy</p>
-            </div>
-            <div class="footer-column">
-                <h3>Về chúng tôi</h3>
-                <ul>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Hình ảnh</a></li>
-                    <li><a href="#">Video</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h3>Kết nối với chúng tôi</h3>
-                <ul>
-                    <li><a href="#">Liên hệ</a></li>
-                    <li>Email: <a href=""></a>23010049@st.phenikaa-uni.edu.vnvn</li>
-                    <li>Hotline: <a href="">0366567296</a></li>
-                </ul>
-            </div>
-        </div>
-    </footer>
-
+    @include('layouts.footer')
 </body>
 
 </html>

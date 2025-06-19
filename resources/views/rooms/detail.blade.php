@@ -48,7 +48,6 @@
             @endif
 
             <h3>{{ number_format($room->price, 0, ',', '.') }}đ / NGÀY</h3>
-            <p>DEBUG price raw: {{ gettype($room->price) }} - {{ $room->price }}</p>
 
             <form action="{{ route('booking.store') }}" method="POST">
 
@@ -102,6 +101,7 @@
         </div>
 
     </div>
+    @include('layouts.footer')
 </body>
 
 </html>
