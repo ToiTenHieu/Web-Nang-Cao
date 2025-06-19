@@ -160,7 +160,8 @@ html {
   display: block;
   font-size: 15px;
   color: #888;
-  margin-bottom: 2px;         /* Giảm khoảng cách với input để cân đối */
+  margin-bottom: 2px;     
+  padding: top 50px; /* Giảm khoảng cách với input để cân đối */
 }
 
 /* Input chọn ngày */
@@ -172,7 +173,9 @@ html {
   color: black;                 /* ✅ Màu chữ người dùng gõ */
   outline: none;
   width: 200px;
-  border-radius: 4px;           /* Tùy chọn: bo góc */
+  border-radius: 4px;   
+  padding-top: 7px;   
+  padding-bottom: 7px;     /* Tùy chọn: bo góc */
 }
 
 /* ✅ Màu cho placeholder */
@@ -251,7 +254,7 @@ html {
 }
 
 .room-card {
-  width: 400px;
+  width: 350px;
   background-color: #fff;
   border-radius: 8px;
   overflow: hidden;
