@@ -126,12 +126,16 @@ Route::post('/booking/store', [BookingController::class, 'store'])->name('bookin
 
 Route::post('/rooms/check-available', [HomeController::class, 'checkAvailableRooms'])->name('rooms.checkAvailable');
 use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\ProfileController;
 
 
 // Route cho cập nhật thông tin cá nhân
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/profile/setup', [UserController::class, 'showProfileForm'])->name('profile.setup');
     Route::post('/profile/setup', [UserController::class, 'storeProfile'])->name('profile.store');
+    Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
+
 });
 
 
@@ -149,11 +153,10 @@ Route::get('/redirect-role', function () {
     $role = Auth::user()->role;
     return match ($role) {
         'admin' => redirect()->route('admin.dashboard'),
-        'user' => redirect()->route('home'),
+'user' => redirect()->route('home'),
         default => abort(403),
     };
 })->middleware(['auth', 'verified']);
-use App\Http\Controllers\ProfileController;
 
 Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
 

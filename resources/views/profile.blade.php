@@ -97,6 +97,7 @@
                 <td>{{ $user->phone }}</td>
             </tr>
         </table>
+        <a href="{{ route('profile.edit') }}" class="btn">Chỉnh sửa</a>
         <a href="{{ route('home') }}#trangchu" class="btn" >Quay lại trang chủ</a>
     </div>
 </body>
