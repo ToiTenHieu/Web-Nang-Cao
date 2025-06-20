@@ -18,7 +18,7 @@
     <li><a href="{{ route('home') }}#about-section">VỀ CHÚNG TÔI</a></li>
     <li><a href="{{ route('home') }}#slogan">PHÒNG NGHỈ</a></li>
     <li><a href="{{ route('home') }}#service-section">TIN TỨC</a></li>
-    <li><a href="{{ route('home') }}#footer">LIÊN HỆ</a></li>
+    <li><a href="{{ route('home') }}#footer">Dịch Vụ</a></li>
 
     {{-- GÓI FORM TRONG <li> --}}
     <li>
